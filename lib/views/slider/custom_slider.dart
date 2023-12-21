@@ -8,8 +8,8 @@ import 'package:dashboard/helper/util.dart';
 
 class CustomSlider extends StatefulWidget {
   Function(SliderItems) OnClick;
-  SliderData newSlider;
-  CustomSlider(this.newSlider, this.OnClick);
+  SliderData sliderData;
+  CustomSlider(this.sliderData, this.OnClick);
   @override
   State<CustomSlider> createState() => _CustomSliderState();
 }
@@ -24,19 +24,19 @@ class _CustomSliderState extends State<CustomSlider> {
   @override
   Widget build(BuildContext context) {
     var myBool = true;
-    if (widget.newSlider.sliderViewType! == "Enlarge") {
+    if (widget.sliderData.sliderViewType! == "Enlarge") {
       myBool = true;
     } else {
       myBool = false;
     }
 
     Color indicatorSelectedColor =
-        Util.getColorFromHex(widget.newSlider.sliderIndicatorSelectedColor!);
+        Util.getColorFromHex(widget.sliderData.sliderIndicatorSelectedColor!);
     Color indicatorUnSelectedColor =
-        Util.getColorFromHex(widget.newSlider.sliderIndicatorUnSelectedColor!);
+        Util.getColorFromHex(widget.sliderData.sliderIndicatorUnSelectedColor!);
 
-    // double padding = double.parse(newSlider.padding!);
-    List<Widget> carouselItems = widget.newSlider.sliderItems!.map((item) {
+    // double padding = double.parse(sliderData.padding!);
+    List<Widget> carouselItems = widget.sliderData.sliderItems!.map((item) {
       // bannerId = item.sliderBannerUID!;
       if (item.sliderType == "Image") {
         return InkWell(
@@ -69,12 +69,12 @@ class _CustomSliderState extends State<CustomSlider> {
                     // height: 270.0,
           
                     enlargeCenterPage: myBool,
-                    autoPlay: widget.newSlider.sliderAutoPlay!,
+                    autoPlay: widget.sliderData.sliderAutoPlay!,
                     aspectRatio: 16 / 9,
                     // autoPlayCurve: Curves.linear,
                     enlargeStrategy: CenterPageEnlargeStrategy.zoom,
                     enableInfiniteScroll: true,
-                    viewportFraction: widget.newSlider.sliderViewPortFraction!,
+                    viewportFraction: widget.sliderData.sliderViewPortFraction!,
                     autoPlayAnimationDuration: Duration(milliseconds: 800),
                     onPageChanged: (index, reason) {
                       setState(() {
@@ -90,7 +90,7 @@ class _CustomSliderState extends State<CustomSlider> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:
-                    widget.newSlider.sliderItems!.asMap().entries.map((entry) {
+                    widget.sliderData.sliderItems!.asMap().entries.map((entry) {
                       return GestureDetector(
                           onTap: () =>
                               carouselController.animateToPage(entry.key),

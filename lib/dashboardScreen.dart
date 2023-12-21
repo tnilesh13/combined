@@ -1,3 +1,5 @@
+import 'package:dashboard/123/blog_view.dart';
+import 'package:dashboard/123/json_call.dart';
 import 'package:dashboard/helper/read_json.dart';
 import 'package:dashboard/modelClass/DashboardModel.dart';
 import 'package:dashboard/views/banners/widget_image.dart';
@@ -91,6 +93,11 @@ class _DashboardState extends State<Dashboard> {
           
               SizedBox(height: 10),
               WidgetPopularCategory(listCategory!),
+              SizedBox(height: 10),
+              // WidgetBlogSlider(listBlogView!),
+          WidgetCallBlogMain(listBlogView!, (item) {
+            (listSlider);
+          }),
               SizedBox(height: 10),
               WidgetPopulorProduct(listProduct!),
               SizedBox(height: 10),

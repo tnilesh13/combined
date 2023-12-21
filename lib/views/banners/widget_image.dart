@@ -38,7 +38,6 @@ class _WidgetImage1State extends State<WidgetImage1> {
           color: bgColor,
         ),
         width: double.infinity,
-        // color: bgColor,
         child: Column(children: [
           Padding(
             padding: EdgeInsets.all(widget.imageViewData.imageViewPadding!),
