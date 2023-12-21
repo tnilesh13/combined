@@ -20,7 +20,7 @@ class _WidgetTextState extends State<WidgetText> {
 
     ReadJsonFile.readJsonData().then((value) {
       setState(() {
-        myMap = value["TextView"];
+        // myMap = value["TextView"];
         print("myMapppp$myMap");
       });
     });

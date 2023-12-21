@@ -15,7 +15,7 @@ class WidgetPopulorProduct extends StatelessWidget {
           if (snapshot.hasData) {
             Map<String, dynamic> jsonData =
                 json.decode(snapshot.data.toString());
-            Data product = Data.fromJson(jsonData["Product"]);
+            ProductData product = ProductData.fromJson(jsonData["Product"]);
 
             Color containerBackgroundColor =
                 Util.getColorFromHex(product.productContainerBackgroundColor!);
@@ -59,7 +59,7 @@ class WidgetPopulorProduct extends StatelessWidget {
 }
 
 class PopulorProductView extends StatelessWidget {
-  Data product;
+  ProductData product;
   PopulorProductView(this.product);
 
   @override

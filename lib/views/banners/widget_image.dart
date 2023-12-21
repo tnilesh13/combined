@@ -19,7 +19,7 @@ class _WidgetImage1State extends State<WidgetImage1> {
 
     ReadJsonFile.readJsonData().then((value) {
       setState(() {
-        myMap = value["ImageView"];
+        // myMap = value["ImageView"];
       });
     });
   }

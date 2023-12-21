@@ -14,7 +14,7 @@ class WidgetPopulorCategory extends StatelessWidget {
           if (snapshot.hasData) {
             Map<String, dynamic> jsonData =
                 json.decode(snapshot.data.toString());
-            Data category = Data.fromJson(jsonData["Category"]);
+            CategoryData category = CategoryData.fromJson(jsonData["Category"]);
 
     Color containerBackgroundColor =
         Util.getColorFromHex(category.categoryContainerBackgroundColor!);
@@ -59,7 +59,7 @@ class WidgetPopulorCategory extends StatelessWidget {
 }
 
 class PopulorCategoryView extends StatelessWidget {
-  Data category;
+  CategoryData category;
   PopulorCategoryView(this.category);
 
   @override

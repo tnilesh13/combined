@@ -2,7 +2,7 @@
   "DashboardJson": [
     {
       "View": "Sliders",
-      "SliderData": {
+      "Data": {
         "SliderIndicatorSelectedColor": "#ffffff",
         "SliderIndicatorUnSelectedColor": "#bcbcbc",
         "SliderViewPortFraction": 0.8,
@@ -48,7 +48,7 @@
     },
     {
       "View": "Category",
-      "CategoryData": {
+      "Data": {
         "CategoryImageBackgroundColor": "#d17171",
         "CategoryTextColor": "#000000",
         "CategoryFontSize": 20.0,
@@ -93,7 +93,7 @@
     },
     {
       "View": "Product",
-      "ProductData": {
+      "Data": {
         "ProductImageBackgroundColor": "#d17171",
         "ProductTextColor": "#000000",
         "ProductFontSize": 20.0,
@@ -136,7 +136,7 @@
     },
     {
       "View": "TextView",
-      "TextViewData": {
+      "Data": {
         "TextViewText": "My Button",
         "TextViewFontSize": 20.0,
         "TextViewDescription": "My Text Description",
@@ -152,7 +152,7 @@
     },
     {
       "View": "ImageView",
-      "ImageViewData": {
+      "Data": {
         "ImageViewSrc": "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "ImageViewRadius": 19.0,
         "ImageViewContainerColor": "#808080",
@@ -174,7 +174,7 @@
     },
     {
       "View": "VideoView",
-      "VideoViewData": {
+      "Data": {
         "VideoViewSrc": "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
         "VideoViewContainerColor": "#808080",
         "VideoViewBackgroundColor": "#EAEAEA",
@@ -195,7 +195,7 @@
     },
     {
       "View": "BlogView",
-      "BlogViewData": {
+      "Data": {
         "BlogViewAutoPlay": false,
         "BlogViewAspectRatio": "16 / 25",
         "BlogViewEnableInfiniteScroll": true,

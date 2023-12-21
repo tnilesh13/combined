@@ -1,3 +1,4 @@
+import 'package:dashboard/dashboardScreen.dart';
 import 'package:dashboard/views/banners/widget_image.dart';
 import 'package:dashboard/views/banners/widget_text.dart';
 import 'package:dashboard/views/banners/widget_video_player.dart';
@@ -36,11 +37,15 @@ class MyDashboard extends StatelessWidget{
         backgroundColor: Colors.amber,
         title: const Text("Slider Example"),
       ),
-      body: const SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            WidgetSlider(),
+      body:  Container(
+        height: 400,
+        child: Dashboard())
+      // body: const SingleChildScrollView(
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.start,
+      //     children: [
+
+            // WidgetSlider(),
             // SizedBox(height: 10),
             // WidgetPopulorCategory(),
             // SizedBox(height: 10),
@@ -51,11 +56,11 @@ class MyDashboard extends StatelessWidget{
             // WidgetImage1(),
             // SizedBox(height: 10),
             // WidgetVideoPlayer(),
-            SizedBox(height: 10),
-            SizedBox(height: 10),
-          ],
-        ),
-      )
+    //         SizedBox(height: 10),
+    //         SizedBox(height: 10),
+    //       ],
+    //     ),
+    //   )
     );
   }
 }

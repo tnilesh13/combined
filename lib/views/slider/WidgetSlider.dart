@@ -1,52 +1,46 @@
-import 'dart:convert';
-import 'package:dashboard/modelClass/DashboardModel.dart';
-import 'package:dashboard/views/slider/custom_slider.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' as root_bundle;
+// import 'dart:convert';
+// import 'package:dashboard/modelClass/DashboardModel.dart';
+// import 'package:dashboard/views/slider/custom_slider.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart' as root_bundle;
 
-class WidgetSlider extends StatefulWidget {
-  const WidgetSlider({super.key});
+// class WidgetSlider extends StatefulWidget {
+//   SliderData? sliderData;
+//   // const WidgetSlider({super.key});
+//   WidgetSlider(this.sliderData);
 
-  State<WidgetSlider> createState() => _WidgetSliderState();
-}
+//   State<WidgetSlider> createState() => _WidgetSliderState();
+// }
 
-class _WidgetSliderState extends State<WidgetSlider> {
+// class _WidgetSliderState extends State<WidgetSlider> {
 
-  @override
-  void initState() {
-    super.initState();
-  }
+//   @override
+//   void initState() {
+//     super.initState();
+//   }
   
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: root_bundle.rootBundle.loadString("assets/json/Dashboard.json"),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          // Map<String, dynamic> jsonData = json.decode(snapshot.data.toString());
-          // List<Map<String, dynamic>> jsonData = json.decode(snapshot.data.toString());
-          List jsonData = json.decode(snapshot.data.toString());
-          // Data newSlider = Data.fromJson(jsonData["DashboardJson"]);  
+//   @override
+//   Widget build(BuildContext context) {
+//     return 
+    
+    
+//     FutureBuilder(
+//       future: root_bundle.rootBundle.loadString("assets/json/Dashboard.json"),
+//       builder: (context, snapshot) {
+//         if (snapshot.hasData) {
+//           // var jsonData = json.decode(snapshot.data.toString());
+//           // final jd = json.decode(jsonData)['DashboardJson'];
           
-          jsonData.map((item) {
-            print("item$item");
-          });
-        
-          print("newSlider$jsonData");
-          return Text("");
-          /*
-          return CustomSlider(newSlider,(item) {
+//           return CustomSlider(widget.sliderData!,(item) {
           
-          },  
-          );
-          
-          */
-        } else if (snapshot.hasError) {
-          return Text('Error loading JSON'); // Handle error
-        } else {
-          return CircularProgressIndicator(); // Show a loading indicator
-        }
-      },       
-    );
-  }
-}
+//           },  
+//           );
+//         } else if (snapshot.hasError) {
+//           return Text('Error loading JSON'); // Handle error
+//         } else {
+//           return CircularProgressIndicator(); // Show a loading indicator
+//         }
+//       },       
+//     );
+//   }
+// }

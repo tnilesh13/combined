@@ -19,7 +19,7 @@ class _WidgetVideoPlayerState extends State<WidgetVideoPlayer> {
 
     ReadJsonFile.readJsonData().then((value) {
       setState(() {
-        myMap = value["VideoView"];
+        // myMap = value["VideoView"];
       });
     });
   }
