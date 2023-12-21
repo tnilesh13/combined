@@ -1,27 +1,17 @@
-import 'package:dashboard/123/model_blog.dart';
+import 'package:dashboard/helper/util.dart';
 import 'package:dashboard/modelClass/DashboardModel.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:dashboard/123/blog_half_image.dart';
-import 'package:dashboard/123/blog_image.dart';
-import 'package:dashboard/123/blog_position_text.dart';
+import 'package:dashboard/views/blog/blog_half_image.dart';
+import 'package:dashboard/views/blog/blog_image.dart';
+import 'package:dashboard/views/blog/blog_position_text.dart';
 
-import 'colors_global.dart';
-
-// class VariablesBlog {
-//   String title = "";
-//   String description = "";
-//   String date = "";
-//   String image = "";
-//   VariablesBlog(this.title, this.description, this.date, this.image);
-// }
 
 class WidgetCallBlogMain extends StatefulWidget {
-// BlogView blogview;
   BlogViewData blogViewData;
   WidgetCallBlogMain(this.blogViewData, this.onClick, {super.key});
-  Function(Items) onClick;
+  Function(BlogViewItems) onClick;
 
   @override
   State<WidgetCallBlogMain> createState() => _WidgetCallBlogMainState();
@@ -45,7 +35,7 @@ class _WidgetCallBlogMainState extends State<WidgetCallBlogMain> {
             }
           }).toList(),
           options: CarouselOptions(
-            // height: 400.0,
+            height: 350.0,
             // enlargeCenterPage: true,
             autoPlay: widget.blogViewData.blogViewAutoPlay!,
             aspectRatio: 16 / 20,
@@ -67,9 +57,8 @@ class _WidgetCallBlogMainState extends State<WidgetCallBlogMain> {
         ),
         DotsIndicator(
           decorator: DotsDecorator(
-              activeColor: GlobalColor.toColor(
-                  widget.blogViewData.blogViewActiveColor.toString()),
-              color: GlobalColor.toColor(
+              activeColor: Util.getColorFromHex(widget.blogViewData.blogViewActiveColor.toString()),
+              color:  Util.getColorFromHex(
                   widget.blogViewData.blogViewColorDots.toString())),
           //  onTap: (position) =>,
           dotsCount: widget.blogViewData.blogViewItems!.length,

@@ -1,10 +1,6 @@
+import 'package:dashboard/helper/util.dart';
 import 'package:dashboard/modelClass/DashboardModel.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dots_indicator/dots_indicator.dart';
-import 'package:dashboard/123/colors_global.dart';
-
-import 'model_blog.dart';
 
 class WidgetCallPosition extends StatefulWidget {
   BlogViewItems blogViewItems;
@@ -72,7 +68,7 @@ class _WidgetCallPositionState extends State<WidgetCallPosition> {
                           ),
                           child: Text(
                             widget.blogViewItems.blogViewTitle.toString(),
-                            style: TextStyle(fontWeight: FontWeight.w500,  fontSize: 18, color: GlobalColor.toColor(widget.blogViewItems.blogViewTextTitleColor.toString())),
+                            style: TextStyle(fontWeight: FontWeight.w500,  fontSize: 18, color:  Util.getColorFromHex(widget.blogViewItems.blogViewTextTitleColor.toString())),
                             maxLines: 2,
                             textAlign: TextAlign.start,
                                               
@@ -86,7 +82,7 @@ class _WidgetCallPositionState extends State<WidgetCallPosition> {
                           ),
                           child: Text(
                             widget.blogViewItems.blogViewDescription.toString(),
-                            style: TextStyle(fontSize: 14, color: GlobalColor.toColor(widget.blogViewItems.blogViewTextDescriptionColor.toString())),
+                            style: TextStyle(fontSize: 14, color:  Util.getColorFromHex(widget.blogViewItems.blogViewTextDescriptionColor.toString())),
                             maxLines: 2,
                             textAlign: TextAlign.start,
                           ),
@@ -99,7 +95,7 @@ class _WidgetCallPositionState extends State<WidgetCallPosition> {
                           ),
                           child: Text(
                             widget.blogViewItems.blogViewDate.toString(),
-                            style: TextStyle(color: GlobalColor.toColor(widget.blogViewItems.blogViewTextTitleColor.toString())),
+                            style: TextStyle(color:  Util.getColorFromHex(widget.blogViewItems.blogViewTextTitleColor.toString())),
                             maxLines: 2,
                             textAlign: TextAlign.start,
                           ),

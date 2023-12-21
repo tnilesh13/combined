@@ -379,7 +379,7 @@ class TextViewData {
   String? textViewFontColor;
   String? textViewFontWeight;
   String? textViewFontType;
-  double? textViewNumberOfLines;
+  int? textViewNumberOfLines;
   String? textViewBackgroundColor;
   double? textViewMargin;
   double? textViewPadding;

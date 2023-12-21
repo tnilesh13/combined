@@ -1,14 +1,6 @@
+import 'package:dashboard/helper/util.dart';
 import 'package:dashboard/modelClass/DashboardModel.dart';
 import 'package:flutter/material.dart';
-import 'colors_global.dart';
-
-// class VariablesBlog {
-//   String title = "";
-//   String description = "";
-//   String date = "";
-//   String image = "";
-//   VariablesBlog(this.title, this.description, this.date, this.image);
-// }
 
 class WidgetCall extends StatefulWidget {
   BlogViewItems blogViewItems;
@@ -19,15 +11,6 @@ class WidgetCall extends StatefulWidget {
 }
 
 class _WidgetCallState extends State<WidgetCall> {
-  // List<VariablesBlog> variableblog = [
-  //   VariablesBlog("blog1", "fffddfdffdfffffd", "2023/10/12", "asset/aa.png"),
-  //   VariablesBlog("blog2", "kekdkdkdk", "2023/10/12", "asset/aa.png"),
-  //   VariablesBlog("blog3", "rkfeopfrkgtrkl", "2023/10/12", "asset/aa.png"),
-  //   VariablesBlog("blog4", "kdsjfhjesmrfb", "2023/10/12", "asset/aa.png"),
-  //   VariablesBlog("blog5", "jkdksndkjgnr", "2023/10/12", "asset/aa.png"),
-  //   VariablesBlog("blog6", "fndjnfbf", "2023/10/12", "asset/aa.png"),
-  // ];
-  //  int currentIndex = 0;
    
   @override
   Widget build(BuildContext context) {
@@ -58,7 +41,7 @@ class _WidgetCallState extends State<WidgetCall> {
                           ),
                           child: Text(
                             widget.blogViewItems.blogViewTitle.toString(),
-                            style: TextStyle(fontWeight: FontWeight.w500,  fontSize: 18, color: GlobalColor.toColor(widget.blogViewItems.blogViewTextTitleColor.toString())),
+                            style: TextStyle(fontWeight: FontWeight.w500,  fontSize: 18, color:  Util.getColorFromHex(widget.blogViewItems.blogViewTextTitleColor.toString())),
                             maxLines: 2,
                             textAlign: TextAlign.start,
                                               
@@ -72,7 +55,7 @@ class _WidgetCallState extends State<WidgetCall> {
                           ),
                           child: Text(
                             widget.blogViewItems.blogViewDescription.toString(),
-                            style: TextStyle(fontSize: 14, color: GlobalColor.toColor(widget.blogViewItems.blogViewTextDescriptionColor.toString())),
+                            style: TextStyle(fontSize: 14, color:  Util.getColorFromHex(widget.blogViewItems.blogViewTextDescriptionColor.toString())),
                             maxLines: 2,
                             textAlign: TextAlign.start,
                           ),
@@ -85,7 +68,7 @@ class _WidgetCallState extends State<WidgetCall> {
                           ),
                           child: Text(
                             widget.blogViewItems.blogViewDate.toString(),
-                            style: TextStyle(color: GlobalColor.toColor(widget.blogViewItems.blogViewTextTitleColor.toString())),
+                            style: TextStyle(color:  Util.getColorFromHex(widget.blogViewItems.blogViewTextTitleColor.toString())),
                             maxLines: 2,
                             textAlign: TextAlign.start,
                           ),
