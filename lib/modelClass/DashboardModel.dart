@@ -10,6 +10,7 @@ class DashboardModel {
         dashboardJson!.add(new DashboardJson.fromJson(v));
       });
     }
+    print(dashboardJson!.length);
   }
 
   Map<String, dynamic> toJson() {

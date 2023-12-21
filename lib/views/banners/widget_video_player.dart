@@ -1,56 +1,57 @@
-import 'package:dashboard/helper/read_json.dart';
 import 'package:dashboard/helper/util.dart';
+import 'package:dashboard/modelClass/DashboardModel.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class WidgetVideoPlayer extends StatefulWidget {
-  const WidgetVideoPlayer({super.key});
+  // const WidgetVideoPlayer({super.key});
+  VideoViewData videoViewData;
+  WidgetVideoPlayer(this.videoViewData);
 
   @override
   State<WidgetVideoPlayer> createState() => _WidgetVideoPlayerState();
 }
 
 class _WidgetVideoPlayerState extends State<WidgetVideoPlayer> {
-  Map<String, dynamic>? myMap;
+  // Map<String, dynamic>? myMap;
 
-  @override
-  void initState() {
-    super.initState();
+  // @override
+  // void initState() {
+  //   super.initState();
 
-    ReadJsonFile.readJsonData().then((value) {
-      setState(() {
-        // myMap = value["VideoView"];
-      });
-    });
-  }
+  //   ReadJsonFile.readJsonData().then((value) {
+  //     setState(() {
+  //       // myMap = value["VideoView"];
+  //     });
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     var textColor =
-        Util.getColorFromHex(myMap!["TextView"]["FontColor"]);
-    var bgColor = Util.getColorFromHex(myMap!["BackgroundColor"]);
+        Util.getColorFromHex(widget.videoViewData.videoViewTextView!.videoViewFontColor!);
+    var bgColor = Util.getColorFromHex(widget.videoViewData.videoViewBackgroundColor!);
 
     return Container(
-      margin: EdgeInsets.all(myMap!["Margin"]),
+      margin: EdgeInsets.all(widget.videoViewData.videoViewMargin!),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(myMap!["Radius"]),
+        borderRadius: BorderRadius.circular(widget.videoViewData.videoViewRadius!),
         color: bgColor,
       ),
       width: double.infinity,
       // color: bgColor,
       child: Column(
         children: [
-          MyVideo(myMap),
+          MyVideo(widget.videoViewData),
 
                   Padding(
-                    padding: EdgeInsets.all(myMap!["Padding"]),
+                    padding: EdgeInsets.all(widget.videoViewData.videoViewPadding!),
                     child: Text(
-                      myMap!["TextView"]["Description"],
+                      widget.videoViewData.videoViewTextView!.videoViewDescription!,
                       style: TextStyle(
                           color: textColor,
                           fontWeight: FontWeight.bold,
-                          fontSize: myMap!["TextView"]
-                              ['DescriptionFontSize']),
+                          fontSize: widget.videoViewData.videoViewTextView!.videoViewDescriptionFontSize),
                     ),
                   ),
         ],
@@ -60,10 +61,11 @@ class _WidgetVideoPlayerState extends State<WidgetVideoPlayer> {
 }
 
 class MyVideo extends StatefulWidget {
-  Map<String, dynamic>? myMap;
+  // Map<String, dynamic>? myMap;
   VideoPlayerController? _videoController;
   Future<void>? _initializeVideoPlayerFuture;
-  MyVideo(this.myMap);
+  VideoViewData videoViewData;
+  MyVideo(this.videoViewData);
 
   @override
   State<MyVideo> createState() => _MyVideoState();
@@ -74,7 +76,7 @@ class _MyVideoState extends State<MyVideo> {
   @override
   void initState() {
     super.initState();
-    srcc = widget.myMap!["Src"];
+    srcc = widget.videoViewData.videoViewSrc;
 
     widget._videoController =
         VideoPlayerController.networkUrl(Uri.parse(srcc!));
@@ -86,20 +88,20 @@ class _MyVideoState extends State<MyVideo> {
   @override
   Widget build(BuildContext context) {
     var textColor =
-        Util.getColorFromHex(widget.myMap!["TextView"]["FontColor"]);
+        Util.getColorFromHex(widget.videoViewData.videoViewTextView!.videoViewFontColor!);
     return FutureBuilder(
         future: widget._initializeVideoPlayerFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return Padding(
-              padding: EdgeInsets.all(widget.myMap!["Margin"]),
+              padding: EdgeInsets.all(widget.videoViewData.videoViewMargin!),
               child: InkWell(
                 child: Stack(children: [
                   AspectRatio(
                     aspectRatio: widget._videoController!.value.aspectRatio,
                     child: ClipRRect(
                       borderRadius:
-                          BorderRadius.circular(widget.myMap!["Radius"]),
+                          BorderRadius.circular(widget.videoViewData.videoViewRadius!),
                       child: VideoPlayer(widget._videoController!),
                     ),
                   ),
@@ -118,13 +120,13 @@ class _MyVideoState extends State<MyVideo> {
                           ),
                   ),
                   // Padding(
-                  //   padding: EdgeInsets.all(widget.myMap!["Padding"]),
+                  //   padding: EdgeInsets.all(widget.widget.videoViewData.videoViewPadding"]),
                   //   child: Text(
-                  //     widget.myMap!["TextView"]["Description"],
+                  //     widget.widget.videoViewData.videoViewTextView!.videoViewDescription"],
                   //     style: TextStyle(
                   //         color: textColor,
                   //         fontWeight: FontWeight.bold,
-                  //         fontSize: widget.myMap!["TextView"]
+                  //         fontSize: widget.widget.videoViewData.videoViewTextView"]
                   //             ['DescriptionFontSize']),
                   //   ),
                   // ),
@@ -142,7 +144,7 @@ class _MyVideoState extends State<MyVideo> {
             );
           } else {
             return Padding(
-                padding: EdgeInsets.all(widget.myMap!["TextView"]["Padding"]),
+                padding: EdgeInsets.all(widget.videoViewData.videoViewTextView!.videoViewPadding!),
                 child: const SizedBox(
                   height: 40.0,
                   // width: 10.0,

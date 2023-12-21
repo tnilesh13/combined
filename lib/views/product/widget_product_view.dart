@@ -6,19 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class WidgetPopulorProduct extends StatelessWidget {
-  const WidgetPopulorProduct({super.key});
+  ProductData product;
+  WidgetPopulorProduct(this.product);
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: rootBundle.loadString("assets/json/Dashboard.json"),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            Map<String, dynamic> jsonData =
-                json.decode(snapshot.data.toString());
-            ProductData product = ProductData.fromJson(jsonData["Product"]);
 
             Color containerBackgroundColor =
                 Util.getColorFromHex(product.productContainerBackgroundColor!);
+    // return FutureBuilder(
+    //     future: rootBundle.loadString("assets/json/Dashboard.json"),
+    //     builder: (context, snapshot) {
+    //       if (snapshot.hasData) {
+    //         Map<String, dynamic> jsonData =
+    //             json.decode(snapshot.data.toString());
+    //         ProductData product = ProductData.fromJson(jsonData["Product"]);
 
             return Container(
               color: containerBackgroundColor,
@@ -49,12 +50,12 @@ class WidgetPopulorProduct extends StatelessWidget {
                 ],
               ),
             );
-          } else if (snapshot.hasError) {
-            return Text('Error loading JSON'); // Handle error
-          } else {
-            return CircularProgressIndicator(); // Show a loading indicator
-          }
-        });
+        //   } else if (snapshot.hasError) {
+        //     return Text('Error loading JSON'); // Handle error
+        //   } else {
+        //     return CircularProgressIndicator(); // Show a loading indicator
+        //   }
+        // });
   }
 }
 

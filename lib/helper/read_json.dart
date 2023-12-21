@@ -6,7 +6,7 @@ import 'package:flutter/services.dart' as root_bundle;
 class ReadJsonFile {
   // static Future<Map> readJsonData({required String path}) async {
   // static Future<Map> readJsonData() async {
-  static Future<DashboardJson> readJsonData() async {
+  static Future<DashboardModel> readJsonData() async {
 
 
     final jsonData = await root_bundle.rootBundle.loadString("assets/json/Dashboard.json");
@@ -15,8 +15,10 @@ class ReadJsonFile {
 
     // print("listtt$list");
 
-    var myList = DashboardJson.fromJson(list);
-    // print("myList$myList");
+    
+    // print("myList2");
+    DashboardModel myList =  DashboardModel.fromJson(list);
+    // print("myList${myList.dashboardJson!.length}");
     return myList;
   }
 }   

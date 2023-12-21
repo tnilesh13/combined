@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:dashboard/helper/util.dart';
 
 class CustomSlider extends StatefulWidget {
-  SliderData newSlider;
   Function(SliderItems) OnClick;
+  SliderData newSlider;
   CustomSlider(this.newSlider, this.OnClick);
   @override
   State<CustomSlider> createState() => _CustomSliderState();

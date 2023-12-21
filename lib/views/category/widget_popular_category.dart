@@ -4,20 +4,24 @@ import 'package:flutter/services.dart';
 import 'package:dashboard/helper/util.dart';
 import 'dart:convert';
 
-class WidgetPopulorCategory extends StatelessWidget {
-  const WidgetPopulorCategory({super.key});
+class WidgetPopularCategory extends StatelessWidget {
+  CategoryData category;
+  WidgetPopularCategory(this.category);
+
+  
+
+  // const WidgetPopulorCategory({super.key});
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: rootBundle.loadString("assets/json/Dashboard.json"),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            Map<String, dynamic> jsonData =
-                json.decode(snapshot.data.toString());
-            CategoryData category = CategoryData.fromJson(jsonData["Category"]);
-
     Color containerBackgroundColor =
         Util.getColorFromHex(category.categoryContainerBackgroundColor!);
+    // return FutureBuilder(
+    //     future: rootBundle.loadString("assets/json/Dashboard.json"),
+    //     builder: (context, snapshot) {
+    //       if (snapshot.hasData) {
+    //         Map<String, dynamic> jsonData =
+    //             json.decode(snapshot.data.toString());
+    //         // CategoryData category = CategoryData.fromJson(jsonData["Category"]);
 
             return Container(
                     color: containerBackgroundColor,
@@ -49,12 +53,12 @@ class WidgetPopulorCategory extends StatelessWidget {
                 ],
               ),
             );
-          } else if (snapshot.hasError) {
-            return Text('Error loading JSON'); // Handle error
-          } else {
-            return CircularProgressIndicator(); // Show a loading indicator
-          }
-        });
+        //   } else if (snapshot.hasError) {
+        //     return Text('Error loading JSON'); // Handle error
+        //   } else {
+        //     return CircularProgressIndicator(); // Show a loading indicator
+        //   }
+        // });
   }
 }
 

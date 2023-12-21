@@ -38,7 +38,7 @@ class MyDashboard extends StatelessWidget{
         title: const Text("Slider Example"),
       ),
       body:  Container(
-        height: 400,
+        
         child: Dashboard())
       // body: const SingleChildScrollView(
       //   child: Column(
