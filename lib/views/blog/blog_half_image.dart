@@ -2,7 +2,6 @@ import 'package:dashboard/helper/util.dart';
 import 'package:dashboard/modelClass/DashboardModel.dart';
 import 'package:flutter/material.dart';
 
-
 class WidgetCallHalfImage extends StatelessWidget {
   BlogViewItems blogViewItems;
   WidgetCallHalfImage(this.blogViewItems, {super.key});
@@ -26,9 +25,10 @@ class WidgetCallHalfImage extends StatelessWidget {
                   padding: EdgeInsets.only(top: 20.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
+
+                    
                     image: DecorationImage(
-                      image: NetworkImage(
-                          blogViewItems.blogViewImagePath!),
+                      image: NetworkImage(blogViewItems.blogViewImagePath!),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -42,8 +42,8 @@ class WidgetCallHalfImage extends StatelessWidget {
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
-                        color:  Util.getColorFromHex(blogViewItems.blogViewTextTitleColor
-                            .toString())),
+                        color: Util.getColorFromHex(
+                            blogViewItems.blogViewTextTitleColor.toString())),
                     maxLines: 2,
                     textAlign: TextAlign.start,
                   ),
@@ -59,8 +59,8 @@ class WidgetCallHalfImage extends StatelessWidget {
                 blogViewItems.blogViewDescription.toString(),
                 style: TextStyle(
                     fontSize: 14,
-                    color:  Util.getColorFromHex(blogViewItems.blogViewTextDescriptionColor
-                        .toString())),
+                    color: Util.getColorFromHex(
+                        blogViewItems.blogViewTextDescriptionColor.toString())),
                 maxLines: 2,
                 textAlign: TextAlign.start,
               ),
@@ -71,10 +71,10 @@ class WidgetCallHalfImage extends StatelessWidget {
                 color: Colors.white38,
               ),
               child: Text(
-                blogViewItems.blogViewDate.toString(),
+                blogViewItems.blogViewDate!,
                 style: TextStyle(
-                    color:  Util.getColorFromHex(blogViewItems.blogViewTextTitleColor
-                        .toString())),
+                    color: Util.getColorFromHex(
+                        blogViewItems.blogViewTextTitleColor.toString())),
                 maxLines: 2,
                 textAlign: TextAlign.start,
               ),

@@ -3,16 +3,14 @@ import 'package:dashboard/modelClass/DashboardModel.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class WidgetVideoPlayer extends StatelessWidget {
-  // const WidgetVideoPlayer({super.key});
+class WidgetBannerVideo extends StatelessWidget {
   VideoViewData videoViewData;
-  WidgetVideoPlayer(this.videoViewData);
+  WidgetBannerVideo(this.videoViewData);
 
-  // Map<String, dynamic>? myMap;
   @override
   Widget build(BuildContext context) {
-    var textColor =
-        Util.getColorFromHex(videoViewData.videoViewTextView!.videoViewFontColor!);
+    var textColor = Util.getColorFromHex(
+        videoViewData.videoViewTextView!.videoViewFontColor!);
     var bgColor = Util.getColorFromHex(videoViewData.videoViewBackgroundColor!);
 
     return Container(
@@ -26,17 +24,17 @@ class WidgetVideoPlayer extends StatelessWidget {
       child: Column(
         children: [
           MyVideo(videoViewData),
-
-                  Padding(
-                    padding: EdgeInsets.all(videoViewData.videoViewPadding!),
-                    child: Text(
-                      videoViewData.videoViewTextView!.videoViewDescription!,
-                      style: TextStyle(
-                          color: textColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: videoViewData.videoViewTextView!.videoViewDescriptionFontSize),
-                    ),
-                  ),
+          Padding(
+            padding: EdgeInsets.all(videoViewData.videoViewPadding!),
+            child: Text(
+              videoViewData.videoViewTextView!.videoViewDescription!,
+              style: TextStyle(
+                  color: textColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: videoViewData
+                      .videoViewTextView!.videoViewDescriptionFontSize),
+            ),
+          ),
         ],
       ),
     );
@@ -44,7 +42,6 @@ class WidgetVideoPlayer extends StatelessWidget {
 }
 
 class MyVideo extends StatefulWidget {
-  // Map<String, dynamic>? myMap;
   VideoPlayerController? _videoController;
   Future<void>? _initializeVideoPlayerFuture;
   VideoViewData videoViewData;
@@ -63,15 +60,14 @@ class _MyVideoState extends State<MyVideo> {
 
     widget._videoController =
         VideoPlayerController.networkUrl(Uri.parse(srcc!));
-    print("mysrccccccc12$srcc");
 
     widget._initializeVideoPlayerFuture = widget._videoController!.initialize();
   }
 
   @override
   Widget build(BuildContext context) {
-    var textColor =
-        Util.getColorFromHex(widget.videoViewData.videoViewTextView!.videoViewFontColor!);
+    var textColor = Util.getColorFromHex(
+        widget.videoViewData.videoViewTextView!.videoViewFontColor!);
     return FutureBuilder(
         future: widget._initializeVideoPlayerFuture,
         builder: (context, snapshot) {
@@ -83,8 +79,8 @@ class _MyVideoState extends State<MyVideo> {
                   AspectRatio(
                     aspectRatio: widget._videoController!.value.aspectRatio,
                     child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(widget.videoViewData.videoViewRadius!),
+                      borderRadius: BorderRadius.circular(
+                          widget.videoViewData.videoViewRadius!),
                       child: VideoPlayer(widget._videoController!),
                     ),
                   ),
@@ -102,17 +98,6 @@ class _MyVideoState extends State<MyVideo> {
                             size: 48,
                           ),
                   ),
-                  // Padding(
-                  //   padding: EdgeInsets.all(widget.widget.videoViewData.videoViewPadding"]),
-                  //   child: Text(
-                  //     widget.widget.videoViewData.videoViewTextView!.videoViewDescription"],
-                  //     style: TextStyle(
-                  //         color: textColor,
-                  //         fontWeight: FontWeight.bold,
-                  //         fontSize: widget.widget.videoViewData.videoViewTextView"]
-                  //             ['DescriptionFontSize']),
-                  //   ),
-                  // ),
                 ]),
                 onTap: () {
                   setState(() {
@@ -127,14 +112,13 @@ class _MyVideoState extends State<MyVideo> {
             );
           } else {
             return Padding(
-                padding: EdgeInsets.all(widget.videoViewData.videoViewTextView!.videoViewPadding!),
+                padding: EdgeInsets.all(
+                    widget.videoViewData.videoViewTextView!.videoViewPadding!),
                 child: const SizedBox(
                   height: 40.0,
                   // width: 10.0,
                   child: Center(child: CircularProgressIndicator()),
                 ));
-
-            //  CircularProgressIndicator();
           }
         });
   }

@@ -2,7 +2,6 @@ import 'package:dashboard/modelClass/DashboardModel.dart';
 import 'package:flutter/material.dart';
 
 class WidgetImage extends StatelessWidget {
-  // Map<String, dynamic> imageee;
   SliderItems myData;
   WidgetImage(this.myData);
 

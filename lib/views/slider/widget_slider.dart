@@ -6,20 +6,17 @@ import 'package:dashboard/views/slider/widget_image_with_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:dashboard/helper/util.dart';
 
-class CustomSlider extends StatefulWidget {
+class WidgetSlider extends StatefulWidget {
   Function(SliderItems) OnClick;
   SliderData sliderData;
-  CustomSlider(this.sliderData, this.OnClick);
+  WidgetSlider(this.sliderData, this.OnClick);
   @override
-  State<CustomSlider> createState() => _CustomSliderState();
+  State<WidgetSlider> createState() => _WidgetSliderState();
 }
 
-class _CustomSliderState extends State<CustomSlider> {
+class _WidgetSliderState extends State<WidgetSlider> {
   final CarouselController carouselController = CarouselController();
-  int currentIndex = 0;
-  // late int bannerId;
-
-  
+  int currentIndex = 0;  
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +32,7 @@ class _CustomSliderState extends State<CustomSlider> {
     Color indicatorUnSelectedColor =
         Util.getColorFromHex(widget.sliderData.sliderIndicatorUnSelectedColor!);
 
-    // double padding = double.parse(sliderData.padding!);
     List<Widget> carouselItems = widget.sliderData.sliderItems!.map((item) {
-      // bannerId = item.sliderBannerUID!;
       if (item.sliderType == "Image") {
         return InkWell(
           onTap: widget.OnClick(item),
@@ -55,19 +50,14 @@ class _CustomSliderState extends State<CustomSlider> {
           child: Stack(
             children: [
               InkWell(
-                onTap: () {
-                
-                  // Navigator.push(context, MaterialPageRoute(builder:(context) => Test(bannerId)));
-                },
+                onTap: () {  
+                 },
                 child: CarouselSlider(
                   
                   items: carouselItems,
                   
                   carouselController: carouselController,
-                  options: CarouselOptions(
-                    
-                    // height: 270.0,
-          
+                  options: CarouselOptions(          
                     enlargeCenterPage: myBool,
                     autoPlay: widget.sliderData.sliderAutoPlay!,
                     aspectRatio: 16 / 9,
@@ -97,7 +87,6 @@ class _CustomSliderState extends State<CustomSlider> {
                           child: Container(
                             width: currentIndex == entry.key ? 17 : 7,
                             height: 7,
-                            // height: 7.0,
                             margin: const EdgeInsets.symmetric(horizontal: 3.0),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),

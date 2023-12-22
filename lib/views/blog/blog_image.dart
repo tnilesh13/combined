@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class WidgetCall extends StatelessWidget {
   BlogViewItems blogViewItems;
   WidgetCall(this.blogViewItems, {super.key});
-// Items items;
   @override
   Widget build(BuildContext context) {
     return Column(

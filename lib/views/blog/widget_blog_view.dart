@@ -7,17 +7,16 @@ import 'package:dashboard/views/blog/blog_half_image.dart';
 import 'package:dashboard/views/blog/blog_image.dart';
 import 'package:dashboard/views/blog/blog_position_text.dart';
 
-
-class WidgetCallBlogMain extends StatefulWidget {
+class WidgetBlogView extends StatefulWidget {
   BlogViewData blogViewData;
-  WidgetCallBlogMain(this.blogViewData, this.onClick, {super.key});
+  WidgetBlogView(this.blogViewData, this.onClick, {super.key});
   Function(BlogViewItems) onClick;
 
   @override
-  State<WidgetCallBlogMain> createState() => _WidgetCallBlogMainState();
+  State<WidgetBlogView> createState() => _WidgetBlogViewState();
 }
 
-class _WidgetCallBlogMainState extends State<WidgetCallBlogMain> {
+class _WidgetBlogViewState extends State<WidgetBlogView> {
   int currentIndex = 0;
 
   @override
@@ -35,7 +34,7 @@ class _WidgetCallBlogMainState extends State<WidgetCallBlogMain> {
             }
           }).toList(),
           options: CarouselOptions(
-            height: 350.0,
+            height: 360.0,
             // enlargeCenterPage: true,
             autoPlay: widget.blogViewData.blogViewAutoPlay!,
             aspectRatio: 16 / 20,
@@ -57,8 +56,9 @@ class _WidgetCallBlogMainState extends State<WidgetCallBlogMain> {
         ),
         DotsIndicator(
           decorator: DotsDecorator(
-              activeColor: Util.getColorFromHex(widget.blogViewData.blogViewActiveColor.toString()),
-              color:  Util.getColorFromHex(
+              activeColor: Util.getColorFromHex(
+                  widget.blogViewData.blogViewActiveColor.toString()),
+              color: Util.getColorFromHex(
                   widget.blogViewData.blogViewColorDots.toString())),
           //  onTap: (position) =>,
           dotsCount: widget.blogViewData.blogViewItems!.length,

@@ -1,4 +1,4 @@
-import 'dart:convert';
+
 
 import 'package:dashboard/modelClass/DashboardModel.dart';
 import 'package:dashboard/helper/util.dart';
@@ -10,52 +10,37 @@ class WidgetPopulorProduct extends StatelessWidget {
   WidgetPopulorProduct(this.product);
   @override
   Widget build(BuildContext context) {
+    Color containerBackgroundColor =
+        Util.getColorFromHex(product.productContainerBackgroundColor!);
 
-            Color containerBackgroundColor =
-                Util.getColorFromHex(product.productContainerBackgroundColor!);
-    // return FutureBuilder(
-    //     future: rootBundle.loadString("assets/json/Dashboard.json"),
-    //     builder: (context, snapshot) {
-    //       if (snapshot.hasData) {
-    //         Map<String, dynamic> jsonData =
-    //             json.decode(snapshot.data.toString());
-    //         ProductData product = ProductData.fromJson(jsonData["Product"]);
-
-            return Container(
-              color: containerBackgroundColor,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(15, 10, 15, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Products",
-                          style: TextStyle(
-                              fontSize: 20, color: Colors.brown.shade900),
-                        ),
-                        product.productAllVisible!
-                            ? Text(
-                                "View All",
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.brown.shade900),
-                              )
-                            : Text(""),
-                      ],
-                    ),
-                  ),
-                  PopulorProductView(product),
-                ],
-              ),
-            );
-        //   } else if (snapshot.hasError) {
-        //     return Text('Error loading JSON'); // Handle error
-        //   } else {
-        //     return CircularProgressIndicator(); // Show a loading indicator
-        //   }
-        // });
+    return Container(
+      color: containerBackgroundColor,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: const EdgeInsets.fromLTRB(15, 10, 15, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Products",
+                  style: TextStyle(fontSize: 20, color: Colors.brown.shade900),
+                ),
+                product.productAllVisible!
+                    ? Text(
+                        "View All",
+                        style: TextStyle(
+                            fontSize: 14, color: Colors.brown.shade900),
+                      )
+                    : Text(""),
+              ],
+            ),
+          ),
+          PopulorProductView(product),
+        ],
+      ),
+    );
   }
 }
 
@@ -65,7 +50,6 @@ class PopulorProductView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     List<ProductItems> listItems = [];
     product.productItems!.map((item) => {listItems.add(item)}).toList();
 
@@ -90,7 +74,8 @@ class PopulorProductView extends StatelessWidget {
                   width: 130,
                   decoration: BoxDecoration(
                       color: viewBackgroundColor,
-                      borderRadius: BorderRadius.circular(product.productImageRadius!),
+                      borderRadius:
+                          BorderRadius.circular(product.productImageRadius!),
                       border: Border.all(width: 1, color: Colors.blue)),
                   margin: EdgeInsets.all(5),
                   child: Padding(
@@ -99,38 +84,38 @@ class PopulorProductView extends StatelessWidget {
                         borderRadius:
                             BorderRadius.circular(product.productImageRadius!),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                        
-                          children: [
-                          Container(
-                            margin: EdgeInsets.all(2),
-                            height: 110,
-                            width: 120,
-                            decoration: BoxDecoration(
-                                color: imageBackgroundColor,
-                                image: DecorationImage(
-                                    image: NetworkImage(
-                                        listItems[index].productImageLink!),
-                                    fit: BoxFit.fill)),
-                          ),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                            alignment: Alignment.centerLeft,
-                            child: Text("${listItems[index].productTitleText!}",
-                                maxLines: 2,
-                                style: TextStyle(
-                                    color: textColor,
-                                    fontSize: product.productFontSize!)),
-                          ),
-                          Container(
-                            padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
-                            alignment: Alignment.centerLeft,
-                            child: Text("${listItems[index].productPrice!}",
-                                style: TextStyle(
-                                    color: textColor,
-                                    fontSize: product.productFontSize!)),
-                          ),
-                        ])),
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.all(2),
+                                height: 110,
+                                width: 120,
+                                decoration: BoxDecoration(
+                                    color: imageBackgroundColor,
+                                    image: DecorationImage(
+                                        image: NetworkImage(
+                                            listItems[index].productImageLink!),
+                                        fit: BoxFit.fill)),
+                              ),
+                              Container(
+                                padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                    "${listItems[index].productTitleText!}",
+                                    maxLines: 2,
+                                    style: TextStyle(
+                                        color: textColor,
+                                        fontSize: product.productFontSize!)),
+                              ),
+                              Container(
+                                padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                alignment: Alignment.centerLeft,
+                                child: Text("${listItems[index].productPrice!}",
+                                    style: TextStyle(
+                                        color: textColor,
+                                        fontSize: product.productFontSize!)),
+                              ),
+                            ])),
                   ),
                 ),
               );

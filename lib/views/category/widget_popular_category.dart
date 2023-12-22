@@ -6,58 +6,40 @@ import 'package:dashboard/helper/util.dart';
 class WidgetPopularCategory extends StatelessWidget {
   CategoryData category;
   WidgetPopularCategory(this.category);
-
-  
-
-  // const WidgetPopulorCategory({super.key});
   @override
   Widget build(BuildContext context) {
     Color containerBackgroundColor =
         Util.getColorFromHex(category.categoryContainerBackgroundColor!);
-    // return FutureBuilder(
-    //     future: rootBundle.loadString("assets/json/Dashboard.json"),
-    //     builder: (context, snapshot) {
-    //       if (snapshot.hasData) {
-    //         Map<String, dynamic> jsonData =
-    //             json.decode(snapshot.data.toString());
-    //         // CategoryData category = CategoryData.fromJson(jsonData["Category"]);
 
-            return Container(
-                    color: containerBackgroundColor,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    color: containerBackgroundColor,
-                    margin: const EdgeInsets.fromLTRB(15, 10, 15, 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Category",
-                          style: TextStyle(
-                              fontSize: 20, color: Colors.brown.shade900),
-                        ),
-                        category.categoryAllVisible!
-                            ? Text(
-                                "View All",
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.brown.shade900),
-                              )
-                            : Text(""),
-                      ],
-                    ),
-                  ),
-                  PopulorCategoryView(category),
-                ],
-              ),
-            );
-        //   } else if (snapshot.hasError) {
-        //     return Text('Error loading JSON'); // Handle error
-        //   } else {
-        //     return CircularProgressIndicator(); // Show a loading indicator
-        //   }
-        // });
+    return Container(
+      color: containerBackgroundColor,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            color: containerBackgroundColor,
+            margin: const EdgeInsets.fromLTRB(15, 10, 15, 5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Category",
+                  style: TextStyle(fontSize: 20, color: Colors.brown.shade900),
+                ),
+                category.categoryAllVisible!
+                    ? Text(
+                        "View All",
+                        style: TextStyle(
+                            fontSize: 14, color: Colors.brown.shade900),
+                      )
+                    : Text(""),
+              ],
+            ),
+          ),
+          PopulorCategoryView(category),
+        ],
+      ),
+    );
   }
 }
 
@@ -85,18 +67,16 @@ class PopulorCategoryView extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: category.categoryItems!.length,
             itemBuilder: (BuildContext context, int index) {
-              print("myitem${category.categoryItems![index]}");
               return InkWell(
                 onTap: () {},
                 child: Container(
                   width: 110,
                   padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                   decoration: BoxDecoration(
+                  decoration: BoxDecoration(
                       color: viewBackgroundColor,
-                      borderRadius: BorderRadius.circular(category.categoryImageRadius!),
+                      borderRadius:
+                          BorderRadius.circular(category.categoryImageRadius!),
                       border: Border.all(width: 1, color: Colors.blue)),
-                 
-                  
                   margin: EdgeInsets.all(5),
                   child: Padding(
                     padding: const EdgeInsets.all(4.0),
@@ -104,25 +84,26 @@ class PopulorCategoryView extends StatelessWidget {
                       Container(
                         width: 70,
                         height: 70,
-                        // margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        
                         decoration: BoxDecoration(
                           color: imageBackgroundColor,
                           image: DecorationImage(
-                              image: NetworkImage(listItems[index].categoryImageLink!),
+                              image: NetworkImage(
+                                  listItems[index].categoryImageLink!),
                               fit: BoxFit.cover),
-                          borderRadius: BorderRadius.circular(category.categoryImageRadius!),
+                          borderRadius: BorderRadius.circular(
+                              category.categoryImageRadius!),
                         ),
                       ),
                       Container(
                         alignment: Alignment.center,
                         padding: EdgeInsets.fromLTRB(6, 5, 6, 5),
-                                child: Text("${listItems[index].categoryTitleText!}",
+                        child: Text("${listItems[index].categoryTitleText!}",
                             overflow: TextOverflow.ellipsis,
                             maxLines: 2,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: textColor, fontSize: category.categoryFontSize!)),
+                                color: textColor,
+                                fontSize: category.categoryFontSize!)),
                       )
                     ]),
                   ),

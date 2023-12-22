@@ -10,19 +10,14 @@ class WidgetImageWithTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Color buttonColor = Util.getColorFromHex(myData.sliderButtonColor!);
     return Container(
-        child: Stack(
-          children: [
-            // Image.asset(
-            //   imageee["image_path"],
-            //   fit: BoxFit.cover,
-            //   width: double.infinity,
-            // ),
-            Image.network(
-              myData.sliderLink!,
-              fit: BoxFit.cover,
-              width: double.infinity,
-            ),
-            Positioned(
+      child: Stack(
+        children: [
+          Image.network(
+            myData.sliderLink!,
+            fit: BoxFit.cover,
+            width: double.infinity,
+          ),
+          Positioned(
               bottom: 70,
               left: 0,
               right: 0,
@@ -39,7 +34,7 @@ class WidgetImageWithTextButton extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ElevatedButton(
                             onPressed: () {
@@ -51,15 +46,14 @@ class WidgetImageWithTextButton extends StatelessWidget {
                               myData.sliderButtonText!,
                             ),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: buttonColor),
+                                backgroundColor: buttonColor),
                           )
                         ]),
                   ),
                 ],
-              )
-            )
-          ],
-        ),
+              ))
+        ],
+      ),
     );
   }
 }
