@@ -3,16 +3,10 @@ import 'package:dashboard/modelClass/DashboardModel.dart';
 import 'package:flutter/material.dart';
 
 
-class WidgetCallHalfImage extends StatefulWidget {
+class WidgetCallHalfImage extends StatelessWidget {
   BlogViewItems blogViewItems;
   WidgetCallHalfImage(this.blogViewItems, {super.key});
 // Items items;
-  @override
-  State<WidgetCallHalfImage> createState() => _WidgetCallHalfImageState();
-}
-
-class _WidgetCallHalfImageState extends State<WidgetCallHalfImage> {
-  
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -34,7 +28,7 @@ class _WidgetCallHalfImageState extends State<WidgetCallHalfImage> {
                     borderRadius: BorderRadius.circular(10.0),
                     image: DecorationImage(
                       image: NetworkImage(
-                          widget.blogViewItems.blogViewImagePath!),
+                          blogViewItems.blogViewImagePath!),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -44,12 +38,11 @@ class _WidgetCallHalfImageState extends State<WidgetCallHalfImage> {
                     color: Colors.white,
                   ),
                   child: Text(
-                    widget.blogViewItems.blogViewTitle.toString(),
+                    blogViewItems.blogViewTitle.toString(),
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
-                        color:  Util.getColorFromHex(widget
-                            .blogViewItems.blogViewTextTitleColor
+                        color:  Util.getColorFromHex(blogViewItems.blogViewTextTitleColor
                             .toString())),
                     maxLines: 2,
                     textAlign: TextAlign.start,
@@ -63,11 +56,10 @@ class _WidgetCallHalfImageState extends State<WidgetCallHalfImage> {
                 color: Colors.white38,
               ),
               child: Text(
-                widget.blogViewItems.blogViewDescription.toString(),
+                blogViewItems.blogViewDescription.toString(),
                 style: TextStyle(
                     fontSize: 14,
-                    color:  Util.getColorFromHex(widget
-                        .blogViewItems.blogViewTextDescriptionColor
+                    color:  Util.getColorFromHex(blogViewItems.blogViewTextDescriptionColor
                         .toString())),
                 maxLines: 2,
                 textAlign: TextAlign.start,
@@ -79,10 +71,9 @@ class _WidgetCallHalfImageState extends State<WidgetCallHalfImage> {
                 color: Colors.white38,
               ),
               child: Text(
-                widget.blogViewItems.blogViewDate.toString(),
+                blogViewItems.blogViewDate.toString(),
                 style: TextStyle(
-                    color:  Util.getColorFromHex(widget
-                        .blogViewItems.blogViewTextTitleColor
+                    color:  Util.getColorFromHex(blogViewItems.blogViewTextTitleColor
                         .toString())),
                 maxLines: 2,
                 textAlign: TextAlign.start,

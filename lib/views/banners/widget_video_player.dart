@@ -3,55 +3,38 @@ import 'package:dashboard/modelClass/DashboardModel.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class WidgetVideoPlayer extends StatefulWidget {
+class WidgetVideoPlayer extends StatelessWidget {
   // const WidgetVideoPlayer({super.key});
   VideoViewData videoViewData;
   WidgetVideoPlayer(this.videoViewData);
 
-  @override
-  State<WidgetVideoPlayer> createState() => _WidgetVideoPlayerState();
-}
-
-class _WidgetVideoPlayerState extends State<WidgetVideoPlayer> {
   // Map<String, dynamic>? myMap;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-
-  //   ReadJsonFile.readJsonData().then((value) {
-  //     setState(() {
-  //       // myMap = value["VideoView"];
-  //     });
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     var textColor =
-        Util.getColorFromHex(widget.videoViewData.videoViewTextView!.videoViewFontColor!);
-    var bgColor = Util.getColorFromHex(widget.videoViewData.videoViewBackgroundColor!);
+        Util.getColorFromHex(videoViewData.videoViewTextView!.videoViewFontColor!);
+    var bgColor = Util.getColorFromHex(videoViewData.videoViewBackgroundColor!);
 
     return Container(
-      margin: EdgeInsets.all(widget.videoViewData.videoViewMargin!),
+      margin: EdgeInsets.all(videoViewData.videoViewMargin!),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(widget.videoViewData.videoViewRadius!),
+        borderRadius: BorderRadius.circular(videoViewData.videoViewRadius!),
         color: bgColor,
       ),
       width: double.infinity,
       // color: bgColor,
       child: Column(
         children: [
-          MyVideo(widget.videoViewData),
+          MyVideo(videoViewData),
 
                   Padding(
-                    padding: EdgeInsets.all(widget.videoViewData.videoViewPadding!),
+                    padding: EdgeInsets.all(videoViewData.videoViewPadding!),
                     child: Text(
-                      widget.videoViewData.videoViewTextView!.videoViewDescription!,
+                      videoViewData.videoViewTextView!.videoViewDescription!,
                       style: TextStyle(
                           color: textColor,
                           fontWeight: FontWeight.bold,
-                          fontSize: widget.videoViewData.videoViewTextView!.videoViewDescriptionFontSize),
+                          fontSize: videoViewData.videoViewTextView!.videoViewDescriptionFontSize),
                     ),
                   ),
         ],

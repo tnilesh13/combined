@@ -11,15 +11,6 @@ class WidgetCallPosition extends StatefulWidget {
 }
 
 class _WidgetCallPositionState extends State<WidgetCallPosition> {
-  // List<VariablesBlog> variableblog = [
-  //   VariablesBlog("blog1", "fffddfdffdfffffdzdfghgfdfgnfdfgnvfxgchvhgfdfgvgcdcbvdxbcdfbvdffnfdfcn", "2023/10/12", "asset/aa.png"),
-  //   VariablesBlog("blog2", "kekdkdkdkfgcfdfgchvfdgchvgfdghvhgfghvgfghfgcv", "2023/10/12", "asset/aa.png"),
-  //   VariablesBlog("blog3", "rkfeopfrkgtrkl", "2023/10/12", "asset/aa.png"),
-  //   VariablesBlog("blog4", "kdsjfhjesmrfb", "2023/10/12", "asset/aa.png"),
-  //   VariablesBlog("blog5", "jkdksndkjgnr", "2023/10/12", "asset/aa.png"),
-  //   VariablesBlog("blog6", "fndjnfbf", "2023/10/12", "asset/aa.png"),
-  // ];
-  // int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
